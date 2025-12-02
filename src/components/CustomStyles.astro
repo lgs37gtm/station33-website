@@ -220,4 +220,23 @@
   .animate-pulse-gentle {
     animation: pulse-gentle 2s ease-in-out infinite;
   }
+
+  /* Disney Section Custom Icon Colors - Rustic Gray and Blue */
+  #disney .text-accent,
+  #disney [class*="text-accent"] {
+    color: rgb(96, 115, 128) !important; /* Rustic slate gray */
+  }
+
+  #disney .bg-accent {
+    background-color: rgb(96, 115, 128) !important;
+  }
+
+  #disney .border-accent {
+    border-color: rgb(96, 115, 128) !important;
+  }
+
+  /* Optional: Style specific icons with muted blue */
+  #disney .text-primary:has(+ div:contains("Riverwalk")) {
+    color: rgb(75, 105, 125) !important; /* Muted slate blue */
+  }
 </style>

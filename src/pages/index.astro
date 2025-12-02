@@ -14,6 +14,7 @@ import aerialImage from '~/assets/images/brochure/2.jpg';
 import trolleyBuildingImage from '~/assets/images/brochure/5.jpg';
 import townhomesImage from '~/assets/images/brochure/15.jpg';
 import hotelImage from '~/assets/images/brochure/10.jpg';
+import diningImage from '~/assets/images/brochure/26.jpg';
 import pavilionImage from '~/assets/images/brochure/18.jpg';
 
 // Import images for amenities section
@@ -111,37 +112,48 @@ const metadata = {
   />
 
   <!-- Founder's Story Section ******************* -->
-  <section class="py-16 md:py-20 lg:py-24 relative overflow-hidden">
-    <!-- Cancer Institute Background -->
-    <div class="absolute inset-0 z-0">
-      <Image
-        src={cancerInstituteImage}
-        alt="Pullen Cancer Center"
-        class="w-full h-full object-cover opacity-25 dark:opacity-15"
-        widths={[800, 1200, 1600]}
-        sizes="100vw"
-      />
-      <div class="absolute inset-0 bg-gradient-to-br from-slate-50/85 via-white/75 to-slate-50/85 dark:from-slate-900/85 dark:via-slate-800/75 dark:to-slate-900/85"></div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+  <section class="py-16 md:py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <!-- Claudia's Photo - Circular Design -->
-        <div class="relative flex justify-center lg:justify-start">
-          <div class="relative w-80 h-80 md:w-96 md:h-96">
-            <!-- Circular photo container -->
-            <div class="w-full h-full rounded-full overflow-hidden shadow-2xl ring-8 ring-white dark:ring-slate-800">
-              <Image
-                src={claudiaPullenImage}
-                alt="Claudia Pullen with her dog, Founder of Station 33"
-                class="w-full h-full object-cover"
-                widths={[400, 600, 800]}
-                sizes="(max-width: 768px) 320px, 384px"
-              />
+        <!-- Dual Image Layout - Elegant Composition -->
+        <div class="relative flex flex-col gap-6">
+          <!-- Claudia's Photo - Circular Design -->
+          <div class="relative flex justify-center lg:justify-start">
+            <div class="relative w-80 h-80 md:w-96 md:h-96">
+              <!-- Circular photo container -->
+              <div class="w-full h-full rounded-full overflow-hidden shadow-2xl ring-8 ring-white dark:ring-slate-800">
+                <Image
+                  src={claudiaPullenImage}
+                  alt="Claudia Pullen with her dog, Founder of Station 33"
+                  class="w-full h-full object-cover"
+                  widths={[400, 600, 800]}
+                  sizes="(max-width: 768px) 320px, 384px"
+                />
+              </div>
+              <!-- Decorative circular accent -->
+              <div class="absolute -z-10 -bottom-4 -right-4 w-full h-full rounded-full border-4 border-primary/20"></div>
+              <div class="absolute -z-20 top-4 -left-4 w-full h-full rounded-full bg-gradient-to-br from-primary/10 to-accent/10"></div>
             </div>
-            <!-- Decorative circular accent -->
-            <div class="absolute -z-10 -bottom-4 -right-4 w-full h-full rounded-full border-4 border-primary/20"></div>
-            <div class="absolute -z-20 top-4 -left-4 w-full h-full rounded-full bg-gradient-to-br from-primary/10 to-accent/10"></div>
+          </div>
+
+          <!-- Cancer Institute Image - Elegant Card -->
+          <div class="relative mx-auto lg:mx-0 w-full max-w-md">
+            <div class="relative overflow-hidden rounded-2xl shadow-xl">
+              <Image
+                src={cancerInstituteImage}
+                alt="Pullen Cancer Center - Legacy of Innovation"
+                class="w-full h-48 object-cover"
+                widths={[400, 600, 800]}
+                sizes="(max-width: 768px) 100vw, 400px"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-4">
+                <p class="text-white text-sm font-semibold">Pullen Cancer Center</p>
+                <p class="text-white/80 text-xs">A legacy of healthcare innovation</p>
+              </div>
+            </div>
+            <!-- Decorative accent -->
+            <div class="absolute -z-10 -bottom-2 -right-2 w-full h-full rounded-2xl bg-primary/10"></div>
           </div>
         </div>
 
@@ -236,6 +248,7 @@ const metadata = {
   <!-- Disney Imagineering Section ******************* -->
   <Content
     id="disney"
+    classes={{ title: 'font-bold' }}
     title="The Disney Imagineering Partnership"
     subtitle="When Claudia chose Disney Imagineering as her design partner, it wasn't about celebrity appeal—it was about finding collaborators who understood that great places aren't just designed, they're imagined."
     items={[
@@ -277,134 +290,71 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-transparent dark:from-primary/10 dark:via-accent/10"></div>
-
-      <!-- Disney Imagineering Particle System - Magical Storytelling Animation -->
+      <!-- Elegant Gradient Waves -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <style>
-          @keyframes sparkle-twinkle {
+          @keyframes elegant-wave {
             0%, 100% {
-              opacity: 0.3;
-              transform: scale(0.8) rotate(0deg);
-              filter: brightness(1);
+              transform: translateX(-50%) translateY(0) scale(1);
+              opacity: 0.08;
             }
             50% {
-              opacity: 1;
-              transform: scale(1.2) rotate(180deg);
-              filter: brightness(1.5);
+              transform: translateX(-50%) translateY(-20px) scale(1.05);
+              opacity: 0.12;
             }
           }
 
-          @keyframes float-3d {
+          @keyframes subtle-drift {
             0% {
-              transform: translate3d(0, 0, 0) rotateZ(0deg);
-            }
-            25% {
-              transform: translate3d(15px, -20px, 20px) rotateZ(90deg);
+              transform: translate(0, 0);
+              opacity: 0.06;
             }
             50% {
-              transform: translate3d(-10px, -35px, 40px) rotateZ(180deg);
-            }
-            75% {
-              transform: translate3d(-20px, -15px, 20px) rotateZ(270deg);
+              transform: translate(30px, -15px);
+              opacity: 0.1;
             }
             100% {
-              transform: translate3d(0, 0, 0) rotateZ(360deg);
+              transform: translate(0, 0);
+              opacity: 0.06;
             }
           }
 
-          @keyframes magic-particles {
-            0% {
-              transform: translateY(100vh) scale(0);
-              opacity: 0;
-            }
-            10% {
-              opacity: 1;
-            }
-            90% {
-              opacity: 1;
-            }
-            100% {
-              transform: translateY(-100px) scale(1);
-              opacity: 0;
-            }
-          }
-
-          @keyframes disney-glow {
+          @keyframes sophisticated-float {
             0%, 100% {
-              box-shadow: 0 0 20px 5px rgba(194, 69, 56, 0.3),
-                          0 0 40px 10px rgba(244, 185, 66, 0.2);
+              transform: translateY(0);
+              opacity: 0.04;
             }
             50% {
-              box-shadow: 0 0 40px 15px rgba(194, 69, 56, 0.5),
-                          0 0 80px 25px rgba(244, 185, 66, 0.3);
+              transform: translateY(-40px);
+              opacity: 0.08;
             }
-          }
-
-          .magic-sparkle {
-            animation: sparkle-twinkle 3s ease-in-out infinite;
-          }
-
-          .magic-float-3d {
-            animation: float-3d 12s ease-in-out infinite;
-            transform-style: preserve-3d;
-          }
-
-          .magic-particle {
-            animation: magic-particles linear infinite;
           }
         </style>
 
-        <!-- Large Featured Sparkles with 3D Depth -->
-        <div class="absolute top-[15%] left-[10%] w-16 h-16 magic-float-3d" style="animation-duration: 10s;">
-          <svg viewBox="0 0 24 24" fill="none" class="w-full h-full text-primary drop-shadow-2xl magic-sparkle">
-            <path d="M12 0L14 8L18 6L15 12L24 12L16 16L18 24L12 18L6 24L8 16L0 12L9 12L6 6L10 8L12 0Z" fill="currentColor"/>
-            <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" fill="rgba(244,185,66,0.8)"/>
-          </svg>
+        <!-- Layered Gradient Waves -->
+        <div class="absolute left-1/2 top-0 w-[120%] h-full" style="animation: elegant-wave 20s ease-in-out infinite;">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-transparent rounded-[50%]"></div>
         </div>
 
-        <div class="absolute top-[45%] right-[15%] w-20 h-20 magic-float-3d" style="animation-duration: 14s; animation-delay: 1s;">
-          <svg viewBox="0 0 24 24" fill="none" class="w-full h-full text-accent drop-shadow-2xl magic-sparkle" style="animation-delay: 1s;">
-            <path d="M12 0L14 8L18 6L15 12L24 12L16 16L18 24L12 18L6 24L8 16L0 12L9 12L6 6L10 8L12 0Z" fill="currentColor"/>
-            <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" fill="rgba(244,185,66,0.6)"/>
-          </svg>
+        <div class="absolute left-1/2 bottom-0 w-[140%] h-full" style="animation: elegant-wave 25s ease-in-out infinite; animation-delay: -5s;">
+          <div class="absolute inset-0 bg-gradient-to-tl from-accent/6 via-transparent to-transparent rounded-[50%]"></div>
         </div>
 
-        <div class="absolute bottom-[20%] left-[20%] w-14 h-14 magic-float-3d" style="animation-duration: 11s; animation-delay: 2s;">
-          <svg viewBox="0 0 24 24" fill="none" class="w-full h-full text-secondary drop-shadow-2xl magic-sparkle" style="animation-delay: 2s;">
-            <path d="M12 0L14 8L18 6L15 12L24 12L16 16L18 24L12 18L6 24L8 16L0 12L9 12L6 6L10 8L12 0Z" fill="currentColor"/>
-            <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" fill="rgba(194,69,56,0.7)"/>
-          </svg>
+        <div class="absolute right-0 top-1/4 w-[100%] h-3/4" style="animation: elegant-wave 30s ease-in-out infinite; animation-delay: -10s;">
+          <div class="absolute inset-0 bg-gradient-to-bl from-secondary/5 via-transparent to-transparent rounded-[50%]"></div>
         </div>
 
-        <div class="absolute top-[65%] right-[35%] w-12 h-12 magic-float-3d" style="animation-duration: 13s; animation-delay: 3s;">
-          <svg viewBox="0 0 24 24" fill="none" class="w-full h-full text-primary drop-shadow-2xl magic-sparkle" style="animation-delay: 1.5s;">
-            <path d="M12 0L14 8L18 6L15 12L24 12L16 16L18 24L12 18L6 24L8 16L0 12L9 12L6 6L10 8L12 0Z" fill="currentColor"/>
-          </svg>
-        </div>
+        <!-- Sophisticated Floating Orbs -->
+        <div class="absolute top-[15%] left-[10%] w-96 h-96 bg-primary/6 rounded-full blur-3xl" style="animation: subtle-drift 18s ease-in-out infinite;"></div>
+        <div class="absolute bottom-[20%] right-[15%] w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl" style="animation: subtle-drift 22s ease-in-out infinite; animation-delay: -8s;"></div>
+        <div class="absolute top-[50%] right-[30%] w-80 h-80 bg-secondary/4 rounded-full blur-3xl" style="animation: subtle-drift 25s ease-in-out infinite; animation-delay: -15s;"></div>
 
-        <!-- Rising Magic Particles (Disney Pixie Dust Effect) -->
-        <div class="absolute bottom-0 left-[15%] w-2 h-2 rounded-full bg-primary magic-particle" style="animation-duration: 8s; animation-delay: 0s;"></div>
-        <div class="absolute bottom-0 left-[25%] w-3 h-3 rounded-full bg-accent magic-particle" style="animation-duration: 10s; animation-delay: 1s;"></div>
-        <div class="absolute bottom-0 left-[35%] w-2 h-2 rounded-full bg-secondary magic-particle" style="animation-duration: 9s; animation-delay: 2s;"></div>
-        <div class="absolute bottom-0 left-[45%] w-3 h-3 rounded-full bg-primary magic-particle" style="animation-duration: 11s; animation-delay: 3s;"></div>
-        <div class="absolute bottom-0 left-[55%] w-2 h-2 rounded-full bg-accent magic-particle" style="animation-duration: 8.5s; animation-delay: 1.5s;"></div>
-        <div class="absolute bottom-0 left-[65%] w-3 h-3 rounded-full bg-secondary magic-particle" style="animation-duration: 9.5s; animation-delay: 0.5s;"></div>
-        <div class="absolute bottom-0 left-[75%] w-2 h-2 rounded-full bg-primary magic-particle" style="animation-duration: 10.5s; animation-delay: 2.5s;"></div>
-        <div class="absolute bottom-0 left-[85%] w-3 h-3 rounded-full bg-accent magic-particle" style="animation-duration: 8.8s; animation-delay: 1.8s;"></div>
+        <!-- Refined Ambient Glow -->
+        <div class="absolute inset-0 bg-gradient-radial from-primary/3 via-transparent to-transparent opacity-40" style="animation: sophisticated-float 35s ease-in-out infinite;"></div>
 
-        <!-- Glowing Disney Magic Orbs with Depth -->
-        <div class="absolute top-[20%] right-[20%] w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-pulse-slow" style="animation: disney-glow 6s ease-in-out infinite;"></div>
-        <div class="absolute bottom-[25%] left-[15%] w-80 h-80 bg-accent/15 rounded-full blur-3xl animate-pulse-slow" style="animation: disney-glow 8s ease-in-out infinite; animation-delay: 2s;"></div>
-        <div class="absolute top-[50%] left-[45%] w-56 h-56 bg-secondary/20 rounded-full blur-3xl animate-pulse-slow" style="animation: disney-glow 7s ease-in-out infinite; animation-delay: 4s;"></div>
-
-        <!-- Subtle Star Field Background -->
-        <div class="absolute top-[10%] left-[30%] w-1 h-1 rounded-full bg-white opacity-60 animate-pulse-gentle"></div>
-        <div class="absolute top-[25%] left-[60%] w-1 h-1 rounded-full bg-white opacity-50 animate-pulse-gentle" style="animation-delay: 1s;"></div>
-        <div class="absolute top-[40%] left-[80%] w-1 h-1 rounded-full bg-white opacity-70 animate-pulse-gentle" style="animation-delay: 2s;"></div>
-        <div class="absolute top-[55%] left-[20%] w-1 h-1 rounded-full bg-white opacity-60 animate-pulse-gentle" style="animation-delay: 1.5s;"></div>
-        <div class="absolute top-[70%] left-[50%] w-1 h-1 rounded-full bg-white opacity-50 animate-pulse-gentle" style="animation-delay: 3s;"></div>
-        <div class="absolute top-[85%] left-[70%] w-1 h-1 rounded-full bg-white opacity-70 animate-pulse-gentle" style="animation-delay: 0.5s;"></div>
+        <!-- Subtle Light Rays -->
+        <div class="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-primary/8 to-transparent" style="animation: sophisticated-float 40s ease-in-out infinite;"></div>
+        <div class="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-accent/6 to-transparent" style="animation: sophisticated-float 45s ease-in-out infinite; animation-delay: -10s;"></div>
       </div>
     </Fragment>
   </Content>
@@ -488,8 +438,8 @@ const metadata = {
         <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
           <div class="aspect-[4/3] relative">
             <Image
-              src={pavilionImage}
-              alt="Pavilion with Outdoor Dining and Seating"
+              src={diningImage}
+              alt="Food Hall and Dining Experience"
               class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               widths={[400, 768, 1024]}
               sizes="(max-width: 768px) 100vw, 50vw"
