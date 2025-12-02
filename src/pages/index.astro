@@ -7,6 +7,19 @@ import Stats from '~/components/widgets/Stats.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
+import { Image } from 'astro:assets';
+import aerialImage from '~/assets/images/brochure/2.jpg';
+
+// Import brochure images for features
+import trolleyBuildingImage from '~/assets/images/brochure/5.jpg';
+import townhomesImage from '~/assets/images/brochure/15.jpg';
+import hotelImage from '~/assets/images/brochure/10.jpg';
+import pavilionImage from '~/assets/images/brochure/18.jpg';
+
+// Import images for amenities section
+import courtyardPoolImage from '~/assets/images/brochure/20.jpg';
+import towerArchwayImage from '~/assets/images/brochure/25.jpg';
+
 const metadata = {
   title: 'Station 33 Chattanooga | Disney Imagineering Mixed-Use Development',
   description: 'A transformative mixed-use destination in downtown Chattanooga designed by Disney Imagineering. Featuring 250,000 SF of commercial space, 47 luxury residences, boutique hotel, and dining on the Riverwalk.',
@@ -16,47 +29,80 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <!-- Hero Section ******************* -->
-  <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Explore Station 33',
-        href: '#features',
-      },
-      {
-        text: 'Schedule Tour',
-        href: '/contact#tour',
-        icon: 'tabler:calendar'
-      },
-    ]}
-  >
-    <Fragment slot="title">
-      <span class="inline-block mb-4 px-4 py-2 text-sm font-semibold tracking-wider uppercase rounded-full bg-primary/10 text-primary border border-primary/30 animate-[badgePulse_2s_ease-in-out_infinite]">
-        ✨ A Disney Imagineering Partnership
-      </span>
-      <br />
-      <span class="gradient-text font-heading text-6xl md:text-7xl lg:text-8xl font-semibold leading-tight tracking-tight">
-        Where Chattanooga<br />Comes Together
-      </span>
-    </Fragment>
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden -mt-[76px]">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+      <Image
+        src={aerialImage}
+        alt="Aerial view of Station 33 development"
+        class="w-full h-full object-cover"
+        loading="eager"
+        widths={[400, 768, 1024, 1536, 2048]}
+        sizes="100vw"
+      />
+      <!-- Dark Overlay -->
+      <div class="absolute inset-0 bg-black/40"></div>
+    </div>
 
-    <Fragment slot="subtitle">
-      <span class="text-xl md:text-2xl text-muted leading-relaxed">
-        A transformative mixed-use destination combining historic charm with modern living.
-        Experience 250,000 SF of commercial space, 47 luxury residences, and a boutique hotel—all designed by Disney Imagineering on Chattanooga's iconic Riverwalk.
-      </span>
-    </Fragment>
-  </Hero>
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-[76px] py-12 md:py-20">
+      <div class="text-center max-w-5xl mx-auto">
+        <!-- Disney Imagineering Badge -->
+        <span class="inline-block mb-6 px-4 py-2 text-sm font-semibold tracking-wider uppercase rounded-full bg-primary/20 text-white border border-primary/50 backdrop-blur-sm animate-[badgePulse_2s_ease-in-out_infinite]">
+          ✨ A Disney Imagineering Partnership
+        </span>
+
+        <!-- Main Heading -->
+        <h1 class="font-heading text-6xl md:text-7xl lg:text-8xl font-semibold leading-tight tracking-tight mb-6 text-white drop-shadow-2xl">
+          Where Chattanooga<br />Comes Together
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-xl md:text-2xl text-white/90 leading-relaxed mb-8 max-w-3xl mx-auto drop-shadow-lg">
+          A transformative mixed-use destination combining historic charm with modern living.
+          Experience 250,000 SF of commercial space, 47 luxury residences, and a boutique hotel—all designed by Disney Imagineering on Chattanooga's iconic Riverwalk.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="#features"
+            class="inline-flex items-center justify-center px-8 py-3 text-base font-semibold rounded-lg bg-primary hover:bg-primary/90 text-white transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105"
+          >
+            Explore Station 33
+          </a>
+          <a
+            href="/contact#tour"
+            class="inline-flex items-center justify-center gap-2 px-8 py-3 text-base font-semibold rounded-lg bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border border-white/30 transition-all duration-200"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            Schedule Tour
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+      <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+  </section>
 
   <!-- Stats Section ******************* -->
   <Stats
     title="Station 33 By The Numbers"
-    subtitle="A $100M+ investment in Chattanooga's future"
+    subtitle="A $100M+ investment transforming downtown Chattanooga"
     stats={[
-      { amount: '250K+', title: 'Square Feet Available', icon: 'tabler:building' },
-      { amount: '47', title: 'Luxury Residential Units', icon: 'tabler:home' },
+      { amount: '8', title: 'Buildings Across Campus', icon: 'tabler:building-skyscraper' },
+      { amount: '250K+', title: 'SF Total Development', icon: 'tabler:building' },
+      { amount: '47', title: 'Residential Units', icon: 'tabler:home' },
       { amount: '63', title: 'Boutique Hotel Rooms', icon: 'tabler:bed' },
-      { amount: '$100M+', title: 'Development Investment', icon: 'tabler:trophy' },
+      { amount: '400', title: 'Parking Spots', icon: 'tabler:car' },
+      { amount: '$100M+', title: 'Investment', icon: 'tabler:trophy' },
     ]}
   />
 
@@ -80,7 +126,7 @@ const metadata = {
       {
         title: 'Riverwalk Integration',
         description: 'Seamless connection to 13+ miles of walking and biking paths along the Tennessee River.',
-        icon: 'tabler:wave',
+        icon: 'tabler:ripple',
       },
     ]}
   >
@@ -97,34 +143,190 @@ const metadata = {
   </Content>
 
   <!-- Features Section ******************* -->
-  <Features
-    id="features"
-    title="Eat. Live. Play. Shop. Work."
-    subtitle="Everything you need in one extraordinary place. Station 33 isn't just a development—it's a complete community."
-    columns={2}
-    items={[
-      {
-        title: 'Premium Office Space',
-        description: '60,000 SF of Grade-A commercial space designed for Chattanooga\'s most innovative companies. Rooftop access, modern amenities, and a built-in talent magnet.',
-        icon: 'tabler:building-skyscraper',
-      },
-      {
-        title: 'Luxury Living',
-        description: '47 sophisticated apartments and townhomes with Riverwalk views. Pet-friendly living designed for urban professionals who want it all.',
-        icon: 'tabler:home-heart',
-      },
-      {
-        title: 'Food Hall & Dining',
-        description: 'A curated collection of restaurants and cafes bringing Chattanooga\'s culinary scene together. From quick bites to leisurely meals.',
-        icon: 'tabler:tools-kitchen-2',
-      },
-      {
-        title: 'Boutique Hotel',
-        description: '63 rooms with rooftop pool and Medusa Lounge. A sanctuary for travelers seeking authentic Chattanooga experiences.',
-        icon: 'tabler:building-estate',
-      },
-    ]}
-  />
+  <section id="features" class="scroll-mt-16 py-16 md:py-20 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <!-- Section Header -->
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tighter mb-4 font-heading">
+          Eat. Live. Play. Shop. Work.
+        </h2>
+        <p class="max-w-3xl mx-auto text-xl text-muted dark:text-slate-400">
+          Everything you need in one extraordinary place. Station 33 isn't just a development—it's a complete community.
+        </p>
+      </div>
+
+      <!-- Features Grid -->
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Premium Office Space -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+          <div class="aspect-[4/3] relative">
+            <Image
+              src={trolleyBuildingImage}
+              alt="Trolley Building - Premium Office Space"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              widths={[400, 768, 1024]}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <h3 class="text-2xl font-bold mb-2">Premium Office Space</h3>
+            <p class="text-white/90">
+              60,000 SF of Grade-A commercial space designed for Chattanooga's most innovative companies. Rooftop access, modern amenities, and a built-in talent magnet.
+            </p>
+          </div>
+        </div>
+
+        <!-- Luxury Living -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+          <div class="aspect-[4/3] relative">
+            <Image
+              src={townhomesImage}
+              alt="Luxury Townhomes - Residential Living"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              widths={[400, 768, 1024]}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <h3 class="text-2xl font-bold mb-2">Luxury Living</h3>
+            <p class="text-white/90">
+              47 sophisticated apartments and townhomes with Riverwalk views. Pet-friendly living designed for urban professionals who want it all.
+            </p>
+          </div>
+        </div>
+
+        <!-- Boutique Hotel -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+          <div class="aspect-[4/3] relative">
+            <Image
+              src={hotelImage}
+              alt="Boutique Hotel Exterior"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              widths={[400, 768, 1024]}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <h3 class="text-2xl font-bold mb-2">Boutique Hotel</h3>
+            <p class="text-white/90">
+              63 rooms with rooftop pool and Medusa Lounge. A sanctuary for travelers seeking authentic Chattanooga experiences.
+            </p>
+          </div>
+        </div>
+
+        <!-- Food Hall & Dining -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+          <div class="aspect-[4/3] relative">
+            <Image
+              src={pavilionImage}
+              alt="Pavilion with Outdoor Dining and Seating"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              widths={[400, 768, 1024]}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <h3 class="text-2xl font-bold mb-2">Food Hall & Dining</h3>
+            <p class="text-white/90">
+              A curated collection of restaurants and cafes bringing Chattanooga's culinary scene together. From quick bites to leisurely meals.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Amenities Section ******************* -->
+  <section class="py-16 md:py-20 lg:py-24 bg-slate-50 dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <!-- Section Header -->
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tighter mb-4 font-heading">
+          World-Class Amenities
+        </h2>
+        <p class="max-w-3xl mx-auto text-xl text-muted dark:text-slate-400">
+          Experience resort-style living with thoughtfully designed spaces that elevate every day. From the serene courtyard pool to sustainable EV charging and beautifully landscaped green spaces, Station 33 offers amenities that enhance your lifestyle.
+        </p>
+      </div>
+
+      <!-- Amenities Grid -->
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Courtyard Pool -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+          <div class="aspect-square relative">
+            <Image
+              src={courtyardPoolImage}
+              alt="Courtyard Pool - Resort-Style Amenity"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              widths={[400, 600, 800]}
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <h3 class="text-xl font-bold mb-2">Courtyard Pool</h3>
+            <p class="text-white/90 text-sm">
+              A serene oasis in the heart of downtown. Relax poolside with stunning views and resort-style amenities designed for year-round enjoyment.
+            </p>
+          </div>
+        </div>
+
+        <!-- EV Charging Pavilion -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+          <div class="aspect-square relative">
+            <Image
+              src={pavilionImage}
+              alt="EV Charging Pavilion - Sustainable Living"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              widths={[400, 600, 800]}
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <h3 class="text-xl font-bold mb-2">EV Charging Pavilion</h3>
+            <p class="text-white/90 text-sm">
+              Embrace sustainable living with convenient electric vehicle charging stations. Modern infrastructure for the eco-conscious resident.
+            </p>
+          </div>
+        </div>
+
+        <!-- Historic Tower Archway -->
+        <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+          <div class="aspect-square relative">
+            <Image
+              src={towerArchwayImage}
+              alt="Historic Tower Archway - Architectural Heritage"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              widths={[400, 600, 800]}
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <h3 class="text-xl font-bold mb-2">Historic Tower Archway</h3>
+            <p class="text-white/90 text-sm">
+              Walk through history beneath the beautifully preserved tower archway. Where Chattanooga's trolley heritage meets modern design.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Amenities Text -->
+      <div class="mt-12 text-center">
+        <div class="max-w-3xl mx-auto">
+          <h3 class="text-2xl font-bold mb-4">Plus So Much More</h3>
+          <p class="text-lg text-muted dark:text-slate-400">
+            Beautifully landscaped green spaces perfect for morning coffee or evening strolls. Pet-friendly parks. Bike storage and direct Riverwalk access. Rooftop terraces with panoramic city views. Every detail designed to connect you with community and nature.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Location Section ******************* -->
   <Content
@@ -136,7 +338,7 @@ const metadata = {
       {
         title: 'Riverwalk Adjacent',
         description: 'Direct access to 13+ miles of walking and biking paths along the Tennessee River.',
-        icon: 'tabler:wave',
+        icon: 'tabler:ripple',
       },
       {
         title: 'Walk Score 95+',
