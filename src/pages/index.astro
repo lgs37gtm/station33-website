@@ -137,23 +137,31 @@ const metadata = {
           </div>
 
           <!-- Cancer Institute Image - Elegant Card -->
-          <div class="relative mx-auto lg:mx-0 w-full max-w-md">
-            <div class="relative overflow-hidden rounded-2xl shadow-xl">
-              <Image
-                src={cancerInstituteImage}
-                alt="Pullen Cancer Center - Legacy of Innovation"
-                class="w-full h-48 object-cover"
-                widths={[400, 600, 800]}
-                sizes="(max-width: 768px) 100vw, 400px"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent"></div>
-              <div class="absolute bottom-0 left-0 right-0 p-4">
-                <p class="text-white text-sm font-semibold">Pullen Cancer Center</p>
-                <p class="text-white/80 text-xs">A legacy of healthcare innovation</p>
+          <div class="relative mx-auto lg:mx-0 w-full max-w-md mt-8">
+            <div class="relative overflow-hidden rounded-2xl shadow-2xl bg-slate-100 dark:bg-slate-800">
+              <div class="relative h-56">
+                <Image
+                  src={cancerInstituteImage}
+                  alt="Pullen Cancer Center - Legacy of Innovation"
+                  class="w-full h-full object-cover"
+                  widths={[400, 600, 800]}
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  loading="eager"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent"></div>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-5 z-10">
+                <div class="flex items-center gap-2 mb-1">
+                  <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
+                  </svg>
+                  <p class="text-white text-sm font-bold">Pullen Cancer Center</p>
+                </div>
+                <p class="text-white/90 text-xs leading-relaxed">A legacy of pioneering healthcare innovation and compassionate care</p>
               </div>
             </div>
-            <!-- Decorative accent -->
-            <div class="absolute -z-10 -bottom-2 -right-2 w-full h-full rounded-2xl bg-primary/10"></div>
+            <!-- Elegant decorative accent with depth -->
+            <div class="absolute -z-10 -bottom-3 -right-3 w-full h-full rounded-2xl bg-gradient-to-br from-primary/15 to-accent/10 blur-sm"></div>
           </div>
         </div>
 
@@ -275,17 +283,59 @@ const metadata = {
     ]}
   >
     <Fragment slot="content">
-      <div class="space-y-4 text-base text-muted">
-        <p>
-          Disney Imagineering brings decades of storytelling expertise to create spaces that connect, inspire, and endure.
-          This partnership validates Claudia's vision: that Station 33 could be both intimate and extraordinary.
-        </p>
-        <p class="font-medium text-slate-900 dark:text-white">
-          "We wanted partners who understood that placemaking is about emotion, not just engineering. Disney Imagineering gets that at their core."
-        </p>
-        <p>
-          The result? A development where every architectural detail, every gathering space, and every preserved historic element works together to tell Chattanooga's story—past, present, and future.
-        </p>
+      <div class="relative">
+        <div class="space-y-4 text-base text-muted">
+          <p>
+            Disney Imagineering brings decades of storytelling expertise to create spaces that connect, inspire, and endure.
+            This partnership validates Claudia's vision: that Station 33 could be both intimate and extraordinary.
+          </p>
+          <p class="font-medium text-slate-900 dark:text-white">
+            "We wanted partners who understood that placemaking is about emotion, not just engineering. Disney Imagineering gets that at their core."
+          </p>
+          <p>
+            The result? A development where every architectural detail, every gathering space, and every preserved historic element works together to tell Chattanooga's story—past, present, and future.
+          </p>
+        </div>
+
+        <!-- Elegant Supportive Animation - Right Side -->
+        <div class="hidden lg:block absolute -right-32 top-1/2 -translate-y-1/2 w-64 h-64 pointer-events-none">
+          <style>
+            @keyframes gentle-pulse-ring {
+              0%, 100% {
+                transform: scale(1);
+                opacity: 0.15;
+              }
+              50% {
+                transform: scale(1.3);
+                opacity: 0.05;
+              }
+            }
+
+            @keyframes rotate-slow {
+              from {
+                transform: rotate(0deg);
+              }
+              to {
+                transform: rotate(360deg);
+              }
+            }
+          </style>
+
+          <!-- Concentric circles with subtle animation -->
+          <div class="absolute inset-0 rounded-full border-2 border-primary/20" style="animation: gentle-pulse-ring 8s ease-in-out infinite;"></div>
+          <div class="absolute inset-8 rounded-full border border-accent/15" style="animation: gentle-pulse-ring 10s ease-in-out infinite; animation-delay: -2s;"></div>
+          <div class="absolute inset-16 rounded-full border border-secondary/10" style="animation: gentle-pulse-ring 12s ease-in-out infinite; animation-delay: -4s;"></div>
+
+          <!-- Subtle rotating arc -->
+          <svg class="absolute inset-0 w-full h-full" style="animation: rotate-slow 60s linear infinite;" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="0.5" stroke-dasharray="60 200" class="text-primary opacity-20"/>
+          </svg>
+
+          <!-- Gentle glow center -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-4 h-4 rounded-full bg-primary/30 blur-md" style="animation: gentle-pulse-ring 4s ease-in-out infinite;"></div>
+          </div>
+        </div>
       </div>
     </Fragment>
 
@@ -595,7 +645,7 @@ const metadata = {
 
       <!-- Real Chattanooga Map with Animated Overlay -->
       <div class="hidden md:block absolute left-0 top-[60%] -translate-y-1/2 w-[500px] h-[500px]" style="left: 2%;">
-        <!-- Static Map Base - Using OpenStreetMap Static Image -->
+        <!-- Static Map Base - Zoomed into Downtown Chattanooga -->
         <div class="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/50 dark:border-slate-700/50">
           <iframe
             width="500"
@@ -604,12 +654,12 @@ const metadata = {
             scrolling="no"
             marginheight="0"
             marginwidth="0"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=-85.31200408935548%2C35.04200%2C-85.29800%2C35.05600&layer=mapnik&marker=35.04900,-85.30500"
-            style="border: 0; filter: grayscale(20%) brightness(1.1);"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-85.3150%2C35.0430%2C-85.3000%2C35.0530&layer=mapnik&marker=35.0480,-85.3075"
+            style="border: 0; filter: grayscale(15%) brightness(1.05); transform: scale(1.4); transform-origin: center;"
             class="pointer-events-none"
           ></iframe>
-          <!-- Map Overlay Gradient -->
-          <div class="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/30 dark:from-slate-900/40 dark:via-transparent dark:to-slate-900/40 pointer-events-none"></div>
+          <!-- Enhanced Map Overlay with better contrast -->
+          <div class="absolute inset-0 bg-gradient-to-br from-white/30 via-white/10 to-white/20 dark:from-slate-900/50 dark:via-slate-900/20 dark:to-slate-900/40 pointer-events-none"></div>
         </div>
 
         <!-- Animated Location Markers Overlay -->
