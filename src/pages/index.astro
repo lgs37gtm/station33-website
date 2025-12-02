@@ -115,53 +115,56 @@ const metadata = {
   <section class="py-16 md:py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <!-- Dual Image Layout - Elegant Composition -->
-        <div class="relative flex flex-col gap-6">
-          <!-- Claudia's Photo - Circular Design -->
-          <div class="relative flex justify-center lg:justify-start">
-            <div class="relative w-80 h-80 md:w-96 md:h-96">
-              <!-- Circular photo container -->
+        <!-- Merged Image Layout - Elegant Overlapping Composition -->
+        <div class="relative h-[600px] lg:h-[650px]">
+          <!-- Cancer Institute Image - Background Layer -->
+          <div class="absolute top-12 right-0 w-[85%] h-[450px] lg:h-[500px]">
+            <div class="relative overflow-hidden rounded-2xl shadow-2xl bg-slate-100 dark:bg-slate-800 h-full">
+              <Image
+                src={cancerInstituteImage}
+                alt="Pullen Cancer Center - Legacy of Innovation"
+                class="w-full h-full object-cover"
+                widths={[400, 600, 800]}
+                sizes="(max-width: 768px) 85vw, 600px"
+                loading="eager"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/85 via-slate-900/40 to-transparent"></div>
+
+              <!-- Cancer Institute Label - Bottom Right Corner -->
+              <div class="absolute bottom-6 right-6 max-w-xs z-10">
+                <div class="backdrop-blur-md bg-white/10 dark:bg-slate-900/30 rounded-xl p-4 border border-white/20">
+                  <div class="flex items-center gap-2 mb-2">
+                    <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
+                    </svg>
+                    <p class="text-white text-sm font-bold">Pullen Cancer Center</p>
+                  </div>
+                  <p class="text-white/95 text-xs leading-relaxed">A legacy of pioneering healthcare innovation and compassionate care</p>
+                </div>
+              </div>
+
+              <!-- Elegant decorative accent -->
+              <div class="absolute -z-10 -bottom-3 -right-3 w-full h-full rounded-2xl bg-gradient-to-br from-primary/15 to-accent/10 blur-sm"></div>
+            </div>
+          </div>
+
+          <!-- Claudia's Photo - Foreground Overlapping Layer -->
+          <div class="absolute top-0 left-0 z-10">
+            <div class="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
+              <!-- Circular photo container with enhanced shadow -->
               <div class="w-full h-full rounded-full overflow-hidden shadow-2xl ring-8 ring-white dark:ring-slate-800">
                 <Image
                   src={claudiaPullenImage}
                   alt="Claudia Pullen with her dog, Founder of Station 33"
                   class="w-full h-full object-cover"
                   widths={[400, 600, 800]}
-                  sizes="(max-width: 768px) 320px, 384px"
+                  sizes="(max-width: 768px) 288px, (max-width: 1024px) 320px, 384px"
                 />
               </div>
-              <!-- Decorative circular accent -->
-              <div class="absolute -z-10 -bottom-4 -right-4 w-full h-full rounded-full border-4 border-primary/20"></div>
-              <div class="absolute -z-20 top-4 -left-4 w-full h-full rounded-full bg-gradient-to-br from-primary/10 to-accent/10"></div>
+              <!-- Enhanced decorative circular accents -->
+              <div class="absolute -z-10 -bottom-4 -right-4 w-full h-full rounded-full border-4 border-primary/30"></div>
+              <div class="absolute -z-20 top-4 -left-4 w-full h-full rounded-full bg-gradient-to-br from-primary/15 to-accent/15"></div>
             </div>
-          </div>
-
-          <!-- Cancer Institute Image - Elegant Card -->
-          <div class="relative mx-auto lg:mx-0 w-full max-w-md mt-8">
-            <div class="relative overflow-hidden rounded-2xl shadow-2xl bg-slate-100 dark:bg-slate-800">
-              <div class="relative h-56">
-                <Image
-                  src={cancerInstituteImage}
-                  alt="Pullen Cancer Center - Legacy of Innovation"
-                  class="w-full h-full object-cover"
-                  widths={[400, 600, 800]}
-                  sizes="(max-width: 768px) 100vw, 400px"
-                  loading="eager"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent"></div>
-              </div>
-              <div class="absolute bottom-0 left-0 right-0 p-5 z-10">
-                <div class="flex items-center gap-2 mb-1">
-                  <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
-                  </svg>
-                  <p class="text-white text-sm font-bold">Pullen Cancer Center</p>
-                </div>
-                <p class="text-white/90 text-xs leading-relaxed">A legacy of pioneering healthcare innovation and compassionate care</p>
-              </div>
-            </div>
-            <!-- Elegant decorative accent with depth -->
-            <div class="absolute -z-10 -bottom-3 -right-3 w-full h-full rounded-2xl bg-gradient-to-br from-primary/15 to-accent/10 blur-sm"></div>
           </div>
         </div>
 
@@ -256,7 +259,11 @@ const metadata = {
   <!-- Disney Imagineering Section ******************* -->
   <Content
     id="disney"
-    classes={{ title: 'font-bold' }}
+    classes={{
+      title: 'font-bold text-5xl md:text-6xl',
+      subtitle: 'text-xl md:text-2xl',
+      container: 'max-w-7xl'
+    }}
     title="The Disney Imagineering Partnership"
     subtitle="When Claudia chose Disney Imagineering as her design partner, it wasn't about celebrity appeal—it was about finding collaborators who understood that great places aren't just designed, they're imagined."
     items={[
@@ -284,17 +291,42 @@ const metadata = {
   >
     <Fragment slot="content">
       <div class="relative">
-        <div class="space-y-4 text-base text-muted">
-          <p>
+        <div class="space-y-6">
+          <!-- Opening Statement -->
+          <p class="text-lg text-muted leading-relaxed">
             Disney Imagineering brings decades of storytelling expertise to create spaces that connect, inspire, and endure.
             This partnership validates Claudia's vision: that Station 33 could be both intimate and extraordinary.
           </p>
-          <p class="font-medium text-slate-900 dark:text-white">
-            "We wanted partners who understood that placemaking is about emotion, not just engineering. Disney Imagineering gets that at their core."
-          </p>
-          <p>
+
+          <!-- Featured Quote - Elevated Design -->
+          <div class="relative my-8">
+            <!-- Decorative quote mark -->
+            <div class="absolute -top-4 -left-2 text-7xl font-serif text-primary/20 leading-none">"</div>
+
+            <blockquote class="relative pl-8 pr-4 py-6 border-l-4 border-primary/40 bg-gradient-to-r from-primary/5 to-transparent rounded-r-lg">
+              <p class="text-xl md:text-2xl font-medium text-slate-900 dark:text-white leading-relaxed italic">
+                We wanted partners who understood that placemaking is about emotion, not just engineering. Disney Imagineering gets that at their core.
+              </p>
+              <footer class="mt-4 text-sm font-semibold text-primary">
+                — Claudia Pullen, Founder
+              </footer>
+            </blockquote>
+          </div>
+
+          <!-- Closing Statement -->
+          <p class="text-lg text-muted leading-relaxed">
             The result? A development where every architectural detail, every gathering space, and every preserved historic element works together to tell Chattanooga's story—past, present, and future.
           </p>
+
+          <!-- Disney Magic Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full border border-primary/20">
+            <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <span class="text-sm font-semibold text-slate-900 dark:text-white">
+              World-Class Placemaking Excellence
+            </span>
+          </div>
         </div>
 
         <!-- Elegant Supportive Animation - Right Side -->
@@ -379,6 +411,28 @@ const metadata = {
               opacity: 0.08;
             }
           }
+
+          @keyframes sparkle-twinkle {
+            0%, 100% {
+              opacity: 0;
+              transform: scale(0);
+            }
+            50% {
+              opacity: 0.8;
+              transform: scale(1);
+            }
+          }
+
+          @keyframes gentle-shimmer {
+            0%, 100% {
+              opacity: 0.3;
+              transform: scale(1) rotate(0deg);
+            }
+            50% {
+              opacity: 0.6;
+              transform: scale(1.1) rotate(180deg);
+            }
+          }
         </style>
 
         <!-- Layered Gradient Waves -->
@@ -405,6 +459,38 @@ const metadata = {
         <!-- Subtle Light Rays -->
         <div class="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-primary/8 to-transparent" style="animation: sophisticated-float 40s ease-in-out infinite;"></div>
         <div class="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-accent/6 to-transparent" style="animation: sophisticated-float 45s ease-in-out infinite; animation-delay: -10s;"></div>
+
+        <!-- Disney-Inspired Magical Sparkles -->
+        <div class="hidden md:block">
+          <!-- Sparkle 1 - Top Left -->
+          <svg class="absolute top-[20%] left-[15%] w-3 h-3 text-primary" style="animation: sparkle-twinkle 3s ease-in-out infinite;" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+          </svg>
+
+          <!-- Sparkle 2 - Top Right -->
+          <svg class="absolute top-[35%] right-[20%] w-2.5 h-2.5 text-accent" style="animation: sparkle-twinkle 4s ease-in-out infinite; animation-delay: -1s;" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+          </svg>
+
+          <!-- Sparkle 3 - Middle Left -->
+          <svg class="absolute top-[55%] left-[25%] w-2 h-2 text-secondary" style="animation: sparkle-twinkle 3.5s ease-in-out infinite; animation-delay: -2s;" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+          </svg>
+
+          <!-- Sparkle 4 - Bottom Right -->
+          <svg class="absolute bottom-[25%] right-[12%] w-3.5 h-3.5 text-primary" style="animation: sparkle-twinkle 4.5s ease-in-out infinite; animation-delay: -0.5s;" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+          </svg>
+
+          <!-- Sparkle 5 - Center -->
+          <svg class="absolute top-[45%] left-[50%] w-2 h-2 text-accent" style="animation: sparkle-twinkle 3.8s ease-in-out infinite; animation-delay: -1.5s;" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+          </svg>
+
+          <!-- Subtle Shimmer Circles -->
+          <div class="absolute top-[30%] left-[40%] w-24 h-24 border border-primary/10 rounded-full" style="animation: gentle-shimmer 8s ease-in-out infinite;"></div>
+          <div class="absolute bottom-[35%] right-[35%] w-32 h-32 border border-accent/8 rounded-full" style="animation: gentle-shimmer 10s ease-in-out infinite; animation-delay: -3s;"></div>
+        </div>
       </div>
     </Fragment>
   </Content>
