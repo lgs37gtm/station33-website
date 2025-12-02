@@ -6,6 +6,7 @@ import Features from '~/components/widgets/Features.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import FeatureCard from '~/components/ui/FeatureCard.astro';
 
 import { Image } from 'astro:assets';
 import aerialImage from '~/assets/images/brochure/2.jpg';
@@ -256,122 +257,8 @@ const metadata = {
     </div>
   </section>
 
-  <!-- Disney Imagineering Section ******************* -->
-  <Content
-    id="disney"
-    classes={{
-      title: 'font-bold text-5xl md:text-6xl',
-      subtitle: 'text-xl md:text-2xl',
-      container: 'max-w-7xl'
-    }}
-    title="The Disney Imagineering Partnership"
-    subtitle="When Claudia chose Disney Imagineering as her design partner, it wasn't about celebrity appeal—it was about finding collaborators who understood that great places aren't just designed, they're imagined."
-    items={[
-      {
-        title: 'Experiential Design',
-        description: 'Every space tells a story, from the restored Trolley Building to modern plaza areas designed for community gathering. Disney Imagineering\'s storytelling expertise creates layers of meaning in every corner.',
-        icon: 'tabler:sparkles',
-      },
-      {
-        title: 'Historic Preservation',
-        description: 'Honoring Chattanooga\'s trolley heritage while creating a vibrant, forward-thinking community. The past and future coexist in perfect harmony.',
-        icon: 'tabler:building-monument',
-      },
-      {
-        title: 'Riverwalk Integration',
-        description: 'Seamless connection to 13+ miles of walking and biking paths along the Tennessee River. Station 33 becomes part of Chattanooga\'s natural flow.',
-        icon: 'tabler:ripple',
-      },
-      {
-        title: 'Human-Scale Placemaking',
-        description: 'Disney Imagineering\'s magic isn\'t in size—it\'s in the details. They helped Claudia maintain her boutique vision while delivering world-class design.',
-        icon: 'tabler:users',
-      },
-    ]}
-  >
-    <Fragment slot="content">
-      <div class="relative">
-        <div class="space-y-6">
-          <!-- Opening Statement -->
-          <p class="text-lg text-muted leading-relaxed">
-            Disney Imagineering brings decades of storytelling expertise to create spaces that connect, inspire, and endure.
-            This partnership validates Claudia's vision: that Station 33 could be both intimate and extraordinary.
-          </p>
-
-          <!-- Featured Quote - Elevated Design -->
-          <div class="relative my-8">
-            <!-- Decorative quote mark -->
-            <div class="absolute -top-4 -left-2 text-7xl font-serif text-primary/20 leading-none">"</div>
-
-            <blockquote class="relative pl-8 pr-4 py-6 border-l-4 border-primary/40 bg-gradient-to-r from-primary/5 to-transparent rounded-r-lg">
-              <p class="text-xl md:text-2xl font-medium text-slate-900 dark:text-white leading-relaxed italic">
-                We wanted partners who understood that placemaking is about emotion, not just engineering. Disney Imagineering gets that at their core.
-              </p>
-              <footer class="mt-4 text-sm font-semibold text-primary">
-                — Claudia Pullen, Founder
-              </footer>
-            </blockquote>
-          </div>
-
-          <!-- Closing Statement -->
-          <p class="text-lg text-muted leading-relaxed">
-            The result? A development where every architectural detail, every gathering space, and every preserved historic element works together to tell Chattanooga's story—past, present, and future.
-          </p>
-
-          <!-- Disney Magic Badge -->
-          <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full border border-primary/20">
-            <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-            </svg>
-            <span class="text-sm font-semibold text-slate-900 dark:text-white">
-              World-Class Placemaking Excellence
-            </span>
-          </div>
-        </div>
-
-        <!-- Elegant Supportive Animation - Right Side -->
-        <div class="hidden lg:block absolute -right-32 top-1/2 -translate-y-1/2 w-64 h-64 pointer-events-none">
-          <style>
-            @keyframes gentle-pulse-ring {
-              0%, 100% {
-                transform: scale(1);
-                opacity: 0.15;
-              }
-              50% {
-                transform: scale(1.3);
-                opacity: 0.05;
-              }
-            }
-
-            @keyframes rotate-slow {
-              from {
-                transform: rotate(0deg);
-              }
-              to {
-                transform: rotate(360deg);
-              }
-            }
-          </style>
-
-          <!-- Concentric circles with subtle animation -->
-          <div class="absolute inset-0 rounded-full border-2 border-primary/20" style="animation: gentle-pulse-ring 8s ease-in-out infinite;"></div>
-          <div class="absolute inset-8 rounded-full border border-accent/15" style="animation: gentle-pulse-ring 10s ease-in-out infinite; animation-delay: -2s;"></div>
-          <div class="absolute inset-16 rounded-full border border-secondary/10" style="animation: gentle-pulse-ring 12s ease-in-out infinite; animation-delay: -4s;"></div>
-
-          <!-- Subtle rotating arc -->
-          <svg class="absolute inset-0 w-full h-full" style="animation: rotate-slow 60s linear infinite;" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="0.5" stroke-dasharray="60 200" class="text-primary opacity-20"/>
-          </svg>
-
-          <!-- Gentle glow center -->
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="w-4 h-4 rounded-full bg-primary/30 blur-md" style="animation: gentle-pulse-ring 4s ease-in-out infinite;"></div>
-          </div>
-        </div>
-      </div>
-    </Fragment>
-
-    <Fragment slot="bg">
+  <!-- Disney Imagineering Section - Animated Cards ******************* -->
+  <section id="disney" class="relative scroll-mt-16 py-16 md:py-20 lg:py-24 overflow-hidden">
       <!-- Elegant Gradient Waves -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <style>
@@ -492,8 +379,87 @@ const metadata = {
           <div class="absolute bottom-[35%] right-[35%] w-32 h-32 border border-accent/8 rounded-full" style="animation: gentle-shimmer 10s ease-in-out infinite; animation-delay: -3s;"></div>
         </div>
       </div>
-    </Fragment>
-  </Content>
+
+    <!-- Main Content Layer -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+      <!-- Section Header -->
+      <div class="text-center mb-12 md:mb-16 max-w-4xl mx-auto">
+        <h2 class="font-bold text-5xl md:text-6xl font-heading mb-6 leading-tight">
+          The Disney Imagineering Partnership
+        </h2>
+        <p class="text-xl md:text-2xl text-muted dark:text-slate-400 leading-relaxed">
+          When Claudia chose Disney Imagineering as her design partner, it wasn't about celebrity appeal—it was about finding collaborators who understood that great places aren't just designed, they're imagined.
+        </p>
+      </div>
+
+      <!-- Content Text Block -->
+      <div class="max-w-4xl mx-auto mb-12 md:mb-16 text-center space-y-8">
+        <p class="text-lg text-muted dark:text-slate-400 leading-relaxed">
+          Disney Imagineering brings decades of storytelling expertise to create spaces that connect, inspire, and endure. This partnership validates Claudia's vision: that Station 33 could be both intimate and extraordinary.
+        </p>
+
+        <!-- Featured Quote - Elevated Design -->
+        <div class="relative my-8 max-w-3xl mx-auto">
+          <!-- Decorative quote mark -->
+          <div class="absolute -top-4 -left-2 text-7xl font-serif text-primary/20 leading-none">"</div>
+
+          <blockquote class="relative pl-8 pr-4 py-6 border-l-4 border-primary/40 bg-gradient-to-r from-primary/5 to-transparent rounded-r-lg">
+            <p class="text-xl md:text-2xl font-medium text-slate-900 dark:text-white leading-relaxed italic">
+              We wanted partners who understood that placemaking is about emotion, not just engineering. Disney Imagineering gets that at their core.
+            </p>
+            <footer class="mt-4 text-sm font-semibold text-primary">
+              — Claudia Pullen, Founder
+            </footer>
+          </blockquote>
+        </div>
+
+        <p class="text-lg text-muted dark:text-slate-400 leading-relaxed">
+          The result? A development where every architectural detail, every gathering space, and every preserved historic element works together to tell Chattanooga's story—past, present, and future.
+        </p>
+
+        <!-- Disney Magic Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full border border-primary/20">
+          <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+          </svg>
+          <span class="text-sm font-semibold text-slate-900 dark:text-white">
+            World-Class Placemaking Excellence
+          </span>
+        </div>
+      </div>
+
+      <!-- Animated Feature Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <FeatureCard
+          title="Experiential Design"
+          description="Every space tells a story, from the restored Trolley Building to modern plaza areas designed for community gathering. Disney Imagineering's storytelling expertise creates layers of meaning in every corner."
+          icon="tabler:sparkles"
+          delay={0}
+        />
+
+        <FeatureCard
+          title="Historic Preservation"
+          description="Honoring Chattanooga's trolley heritage while creating a vibrant, forward-thinking community. The past and future coexist in perfect harmony."
+          icon="tabler:building-monument"
+          delay={150}
+        />
+
+        <FeatureCard
+          title="Riverwalk Integration"
+          description="Seamless connection to 13+ miles of walking and biking paths along the Tennessee River. Station 33 becomes part of Chattanooga's natural flow."
+          icon="tabler:ripple"
+          delay={300}
+        />
+
+        <FeatureCard
+          title="Human-Scale Placemaking"
+          description="Disney Imagineering's magic isn't in size—it's in the details. They helped Claudia maintain her boutique vision while delivering world-class design."
+          icon="tabler:users"
+          delay={450}
+        />
+      </div>
+    </div>
+  </section>
 
   <!-- Features Section ******************* -->
   <section id="features" class="scroll-mt-16 py-16 md:py-20 lg:py-24">

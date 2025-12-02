@@ -1,0 +1,271 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  delay?: number;
+}
+
+const { title, description, icon, delay = 0 } = Astro.props;
+---
+
+<div
+  class="feature-card group"
+  style={`animation-delay: ${delay}ms;`}
+>
+  <!-- Icon Badge with Pulse Animation -->
+  <div class="icon-badge">
+    <div class="icon-badge-inner">
+      <Icon name={icon} class="icon-svg" />
+    </div>
+    <!-- Animated ring pulse effect -->
+    <div class="icon-ring"></div>
+  </div>
+
+  <!-- Title -->
+  <h3 class="card-title">
+    {title}
+  </h3>
+
+  <!-- Description -->
+  <p class="card-description">
+    {description}
+  </p>
+
+  <!-- Animated sparkle on hover -->
+  <div class="card-sparkle"></div>
+</div>
+
+<style>
+  /* Card Base Styles with Entry Animation */
+  .feature-card {
+    position: relative;
+    background: white;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+
+    /* Entry animation */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: cardFadeIn 0.6s ease-out forwards;
+  }
+
+  @media (min-width: 768px) {
+    .feature-card {
+      padding: 2.5rem;
+    }
+  }
+
+  /* Dark mode */
+  :global(.dark) .feature-card {
+    background: rgb(30, 41, 59);
+    border-color: rgba(51, 65, 85, 0.6);
+  }
+
+  /* Card Entry Animation */
+  @keyframes cardFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Hover Effects */
+  .feature-card:hover {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.15), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    transform: translateY(-8px) scale(1.02);
+  }
+
+  /* Icon Badge Container */
+  .icon-badge {
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .icon-badge {
+      width: 6rem;
+      height: 6rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  /* Icon Badge Inner Circle */
+  .icon-badge-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgb(122, 139, 79); /* Accent green */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:hover .icon-badge-inner {
+    transform: scale(1.1) rotate(5deg);
+    animation: iconBounce 0.6s ease;
+  }
+
+  @keyframes iconBounce {
+    0%, 100% { transform: scale(1.1) rotate(5deg); }
+    50% { transform: scale(1.2) rotate(-5deg); }
+  }
+
+  /* Icon SVG */
+  .icon-svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: white;
+  }
+
+  @media (min-width: 768px) {
+    .icon-svg {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  /* Animated Ring Pulse */
+  .icon-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 3px solid rgb(122, 139, 79);
+    opacity: 0;
+    animation: ringPulse 2s ease-out infinite;
+  }
+
+  .feature-card:hover .icon-ring {
+    animation: ringPulseHover 1.5s ease-out infinite;
+  }
+
+  @keyframes ringPulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+
+  @keyframes ringPulseHover {
+    0% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+
+  /* Card Title */
+  .card-title {
+    font-family: var(--aw-font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: rgb(15, 23, 42);
+    transition: color 0.3s ease;
+  }
+
+  @media (min-width: 768px) {
+    .card-title {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  :global(.dark) .card-title {
+    color: white;
+  }
+
+  .feature-card:hover .card-title {
+    color: rgb(194, 69, 56); /* Primary color */
+  }
+
+  :global(.dark) .feature-card:hover .card-title {
+    color: rgb(216, 90, 58); /* Burnt orange for dark mode */
+  }
+
+  /* Card Description */
+  .card-description {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    text-align: center;
+    color: rgb(92, 92, 92);
+    max-width: 28rem;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .card-description {
+      font-size: 1.25rem;
+    }
+  }
+
+  :global(.dark) .card-description {
+    color: rgb(148, 163, 184);
+  }
+
+  /* Card Sparkle Effect on Hover */
+  .card-sparkle {
+    position: absolute;
+    inset: 0;
+    border-radius: 1.5rem;
+    opacity: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(122, 139, 79, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .feature-card:hover .card-sparkle {
+    opacity: 1;
+    animation: sparkleRotate 8s linear infinite;
+  }
+
+  @keyframes sparkleRotate {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.05); }
+    100% { transform: rotate(360deg) scale(1); }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .feature-card {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    .feature-card:hover {
+      transform: none;
+    }
+
+    .icon-ring,
+    .card-sparkle {
+      animation: none;
+    }
+
+    .feature-card:hover .icon-badge-inner {
+      animation: none;
+      transform: scale(1.05);
+    }
+  }
+</style>
