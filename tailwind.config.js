@@ -12,11 +12,23 @@ export default {
         accent: 'var(--aw-color-accent)',
         default: 'var(--aw-color-text-default)',
         muted: 'var(--aw-color-text-muted)',
+        // Station 33 Brand Colors
+        station: {
+          orange: '#FF6B35',
+          coral: '#FF8555',
+          cream: '#FFB347',
+          charcoal: '#2F2F2F',
+          brick: '#A64B2A',
+          beige: '#F4E8D8',
+          green: '#3A5F5A',
+          blue: '#5BA7C4',
+          gold: '#F4B942',
+        },
       },
       fontFamily: {
-        sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
-        serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
-        heading: ['var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
+        sans: ['var(--aw-font-sans, "Manrope")', ...defaultTheme.fontFamily.sans],
+        serif: ['var(--aw-font-serif, "Cormorant Garamond")', ...defaultTheme.fontFamily.serif],
+        heading: ['var(--aw-font-heading, "Cormorant Garamond")', ...defaultTheme.fontFamily.sans],
       },
 
       animation: {

@@ -1,30 +1,30 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind.vercel.app'
+  name: Station 33
+  site: 'https://station33.com'
   base: '/'
   trailingSlash: false
 
-  googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
+  googleSiteVerificationId: null # Add after Google Search Console setup
 
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: Station 33 Chattanooga
+    template: '%s — Station 33'
+  description: "A Disney Imagineering-designed mixed-use destination in downtown Chattanooga. 250,000 SF of commercial space, 47 luxury residences, boutique hotel, and food hall on the Riverwalk."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: Station 33
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/station33-og.jpg'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@arthelokyo'
-    site: '@arthelokyo'
+    handle: '@station33cha'
+    site: '@station33cha'
     cardType: summary_large_image
 
 i18n:
