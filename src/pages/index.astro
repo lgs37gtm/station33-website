@@ -20,8 +20,9 @@ import pavilionImage from '~/assets/images/brochure/18.jpg';
 import courtyardPoolImage from '~/assets/images/brochure/20.jpg';
 import towerArchwayImage from '~/assets/images/brochure/25.jpg';
 
-// Import Claudia's photo
-import claudiaPullenImage from '~/assets/images/claudia-pullen.jpg';
+// Import Claudia's photos
+import claudiaPullenImage from '~/assets/images/claudia-pullen-2.jpg';
+import cancerInstituteImage from '~/assets/images/pullen-cancer-institute.jpg';
 
 const metadata = {
   title: 'Station 33 Chattanooga | Disney Imagineering Mixed-Use Development',
@@ -110,8 +111,20 @@ const metadata = {
   />
 
   <!-- Founder's Story Section ******************* -->
-  <section class="py-16 md:py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+  <section class="py-16 md:py-20 lg:py-24 relative overflow-hidden">
+    <!-- Cancer Institute Background -->
+    <div class="absolute inset-0 z-0">
+      <Image
+        src={cancerInstituteImage}
+        alt="Pullen Cancer Center"
+        class="w-full h-full object-cover opacity-10 dark:opacity-5"
+        widths={[800, 1200, 1600]}
+        sizes="100vw"
+      />
+      <div class="absolute inset-0 bg-gradient-to-br from-slate-50/95 via-white/90 to-slate-50/95 dark:from-slate-900/95 dark:via-slate-800/90 dark:to-slate-900/95"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <!-- Claudia's Photo - Circular Design -->
         <div class="relative flex justify-center lg:justify-start">
@@ -120,7 +133,7 @@ const metadata = {
             <div class="w-full h-full rounded-full overflow-hidden shadow-2xl ring-8 ring-white dark:ring-slate-800">
               <Image
                 src={claudiaPullenImage}
-                alt="Claudia Pullen, Founder of Station 33"
+                alt="Claudia Pullen with her dog, Founder of Station 33"
                 class="w-full h-full object-cover"
                 widths={[400, 600, 800]}
                 sizes="(max-width: 768px) 320px, 384px"
@@ -266,34 +279,132 @@ const metadata = {
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-transparent dark:from-primary/10 dark:via-accent/10"></div>
 
-      <!-- Floating Disney Magic Elements - Enhanced Visibility -->
+      <!-- Disney Imagineering Particle System - Magical Storytelling Animation -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <!-- Sparkle Stars -->
-        <div class="absolute top-[20%] left-[15%] w-8 h-8 animate-float-slow">
-          <svg viewBox="0 0 24 24" fill="none" class="w-full h-full text-primary opacity-60">
-            <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" fill="currentColor"/>
-          </svg>
-        </div>
-        <div class="absolute top-[30%] right-[20%] w-6 h-6 animate-float-medium" style="animation-delay: 1s;">
-          <svg viewBox="0 0 24 24" fill="none" class="w-full h-full text-accent opacity-50">
-            <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" fill="currentColor"/>
-          </svg>
-        </div>
-        <div class="absolute bottom-[25%] left-[25%] w-7 h-7 animate-float-fast" style="animation-delay: 2s;">
-          <svg viewBox="0 0 24 24" fill="none" class="w-full h-full text-secondary opacity-55">
-            <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" fill="currentColor"/>
-          </svg>
-        </div>
-        <div class="absolute top-[60%] right-[30%] w-5 h-5 animate-float-slow" style="animation-delay: 3s;">
-          <svg viewBox="0 0 24 24" fill="none" class="w-full h-full text-primary opacity-45">
-            <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" fill="currentColor"/>
+        <style>
+          @keyframes sparkle-twinkle {
+            0%, 100% {
+              opacity: 0.3;
+              transform: scale(0.8) rotate(0deg);
+              filter: brightness(1);
+            }
+            50% {
+              opacity: 1;
+              transform: scale(1.2) rotate(180deg);
+              filter: brightness(1.5);
+            }
+          }
+
+          @keyframes float-3d {
+            0% {
+              transform: translate3d(0, 0, 0) rotateZ(0deg);
+            }
+            25% {
+              transform: translate3d(15px, -20px, 20px) rotateZ(90deg);
+            }
+            50% {
+              transform: translate3d(-10px, -35px, 40px) rotateZ(180deg);
+            }
+            75% {
+              transform: translate3d(-20px, -15px, 20px) rotateZ(270deg);
+            }
+            100% {
+              transform: translate3d(0, 0, 0) rotateZ(360deg);
+            }
+          }
+
+          @keyframes magic-particles {
+            0% {
+              transform: translateY(100vh) scale(0);
+              opacity: 0;
+            }
+            10% {
+              opacity: 1;
+            }
+            90% {
+              opacity: 1;
+            }
+            100% {
+              transform: translateY(-100px) scale(1);
+              opacity: 0;
+            }
+          }
+
+          @keyframes disney-glow {
+            0%, 100% {
+              box-shadow: 0 0 20px 5px rgba(194, 69, 56, 0.3),
+                          0 0 40px 10px rgba(244, 185, 66, 0.2);
+            }
+            50% {
+              box-shadow: 0 0 40px 15px rgba(194, 69, 56, 0.5),
+                          0 0 80px 25px rgba(244, 185, 66, 0.3);
+            }
+          }
+
+          .magic-sparkle {
+            animation: sparkle-twinkle 3s ease-in-out infinite;
+          }
+
+          .magic-float-3d {
+            animation: float-3d 12s ease-in-out infinite;
+            transform-style: preserve-3d;
+          }
+
+          .magic-particle {
+            animation: magic-particles linear infinite;
+          }
+        </style>
+
+        <!-- Large Featured Sparkles with 3D Depth -->
+        <div class="absolute top-[15%] left-[10%] w-16 h-16 magic-float-3d" style="animation-duration: 10s;">
+          <svg viewBox="0 0 24 24" fill="none" class="w-full h-full text-primary drop-shadow-2xl magic-sparkle">
+            <path d="M12 0L14 8L18 6L15 12L24 12L16 16L18 24L12 18L6 24L8 16L0 12L9 12L6 6L10 8L12 0Z" fill="currentColor"/>
+            <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" fill="rgba(244,185,66,0.8)"/>
           </svg>
         </div>
 
-        <!-- Larger magical orbs -->
-        <div class="absolute top-[25%] right-[25%] w-48 h-48 bg-primary/15 rounded-full blur-3xl animate-pulse-slow"></div>
-        <div class="absolute bottom-[30%] left-[20%] w-56 h-56 bg-accent/15 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
-        <div class="absolute top-[50%] left-[40%] w-40 h-40 bg-secondary/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 4s;"></div>
+        <div class="absolute top-[45%] right-[15%] w-20 h-20 magic-float-3d" style="animation-duration: 14s; animation-delay: 1s;">
+          <svg viewBox="0 0 24 24" fill="none" class="w-full h-full text-accent drop-shadow-2xl magic-sparkle" style="animation-delay: 1s;">
+            <path d="M12 0L14 8L18 6L15 12L24 12L16 16L18 24L12 18L6 24L8 16L0 12L9 12L6 6L10 8L12 0Z" fill="currentColor"/>
+            <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" fill="rgba(244,185,66,0.6)"/>
+          </svg>
+        </div>
+
+        <div class="absolute bottom-[20%] left-[20%] w-14 h-14 magic-float-3d" style="animation-duration: 11s; animation-delay: 2s;">
+          <svg viewBox="0 0 24 24" fill="none" class="w-full h-full text-secondary drop-shadow-2xl magic-sparkle" style="animation-delay: 2s;">
+            <path d="M12 0L14 8L18 6L15 12L24 12L16 16L18 24L12 18L6 24L8 16L0 12L9 12L6 6L10 8L12 0Z" fill="currentColor"/>
+            <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" fill="rgba(194,69,56,0.7)"/>
+          </svg>
+        </div>
+
+        <div class="absolute top-[65%] right-[35%] w-12 h-12 magic-float-3d" style="animation-duration: 13s; animation-delay: 3s;">
+          <svg viewBox="0 0 24 24" fill="none" class="w-full h-full text-primary drop-shadow-2xl magic-sparkle" style="animation-delay: 1.5s;">
+            <path d="M12 0L14 8L18 6L15 12L24 12L16 16L18 24L12 18L6 24L8 16L0 12L9 12L6 6L10 8L12 0Z" fill="currentColor"/>
+          </svg>
+        </div>
+
+        <!-- Rising Magic Particles (Disney Pixie Dust Effect) -->
+        <div class="absolute bottom-0 left-[15%] w-2 h-2 rounded-full bg-primary magic-particle" style="animation-duration: 8s; animation-delay: 0s;"></div>
+        <div class="absolute bottom-0 left-[25%] w-3 h-3 rounded-full bg-accent magic-particle" style="animation-duration: 10s; animation-delay: 1s;"></div>
+        <div class="absolute bottom-0 left-[35%] w-2 h-2 rounded-full bg-secondary magic-particle" style="animation-duration: 9s; animation-delay: 2s;"></div>
+        <div class="absolute bottom-0 left-[45%] w-3 h-3 rounded-full bg-primary magic-particle" style="animation-duration: 11s; animation-delay: 3s;"></div>
+        <div class="absolute bottom-0 left-[55%] w-2 h-2 rounded-full bg-accent magic-particle" style="animation-duration: 8.5s; animation-delay: 1.5s;"></div>
+        <div class="absolute bottom-0 left-[65%] w-3 h-3 rounded-full bg-secondary magic-particle" style="animation-duration: 9.5s; animation-delay: 0.5s;"></div>
+        <div class="absolute bottom-0 left-[75%] w-2 h-2 rounded-full bg-primary magic-particle" style="animation-duration: 10.5s; animation-delay: 2.5s;"></div>
+        <div class="absolute bottom-0 left-[85%] w-3 h-3 rounded-full bg-accent magic-particle" style="animation-duration: 8.8s; animation-delay: 1.8s;"></div>
+
+        <!-- Glowing Disney Magic Orbs with Depth -->
+        <div class="absolute top-[20%] right-[20%] w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-pulse-slow" style="animation: disney-glow 6s ease-in-out infinite;"></div>
+        <div class="absolute bottom-[25%] left-[15%] w-80 h-80 bg-accent/15 rounded-full blur-3xl animate-pulse-slow" style="animation: disney-glow 8s ease-in-out infinite; animation-delay: 2s;"></div>
+        <div class="absolute top-[50%] left-[45%] w-56 h-56 bg-secondary/20 rounded-full blur-3xl animate-pulse-slow" style="animation: disney-glow 7s ease-in-out infinite; animation-delay: 4s;"></div>
+
+        <!-- Subtle Star Field Background -->
+        <div class="absolute top-[10%] left-[30%] w-1 h-1 rounded-full bg-white opacity-60 animate-pulse-gentle"></div>
+        <div class="absolute top-[25%] left-[60%] w-1 h-1 rounded-full bg-white opacity-50 animate-pulse-gentle" style="animation-delay: 1s;"></div>
+        <div class="absolute top-[40%] left-[80%] w-1 h-1 rounded-full bg-white opacity-70 animate-pulse-gentle" style="animation-delay: 2s;"></div>
+        <div class="absolute top-[55%] left-[20%] w-1 h-1 rounded-full bg-white opacity-60 animate-pulse-gentle" style="animation-delay: 1.5s;"></div>
+        <div class="absolute top-[70%] left-[50%] w-1 h-1 rounded-full bg-white opacity-50 animate-pulse-gentle" style="animation-delay: 3s;"></div>
+        <div class="absolute top-[85%] left-[70%] w-1 h-1 rounded-full bg-white opacity-70 animate-pulse-gentle" style="animation-delay: 0.5s;"></div>
       </div>
     </Fragment>
   </Content>
@@ -532,69 +643,127 @@ const metadata = {
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-gradient-to-tl from-secondary/5 via-primary/5 to-transparent dark:from-primary/10 dark:via-accent/10"></div>
 
-      <!-- Enhanced Connectivity Map Animation - Positioned Left -->
-      <div class="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-96 h-96 pointer-events-none" style="left: 5%;">
-        <!-- Station 33 Center Hub -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div class="relative">
-            <!-- Pulsing rings -->
-            <div class="absolute inset-0 w-20 h-20 -translate-x-10 -translate-y-10 bg-primary/20 rounded-full animate-ping-slow"></div>
-            <div class="absolute inset-0 w-16 h-16 -translate-x-8 -translate-y-8 bg-primary/30 rounded-full animate-ping-medium"></div>
-            <!-- Central dot -->
-            <div class="w-6 h-6 -translate-x-3 -translate-y-3 bg-primary rounded-full shadow-lg relative z-10">
-              <div class="absolute inset-1 bg-white rounded-full"></div>
+      <!-- Real Chattanooga Map with Animated Overlay -->
+      <div class="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px]" style="left: 2%;">
+        <!-- Static Map Base - Using OpenStreetMap Static Image -->
+        <div class="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/50 dark:border-slate-700/50">
+          <iframe
+            width="500"
+            height="500"
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-85.31200408935548%2C35.04200%2C-85.29800%2C35.05600&layer=mapnik&marker=35.04900,-85.30500"
+            style="border: 0; filter: grayscale(20%) brightness(1.1);"
+            class="pointer-events-none"
+          ></iframe>
+          <!-- Map Overlay Gradient -->
+          <div class="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/30 dark:from-slate-900/40 dark:via-transparent dark:to-slate-900/40 pointer-events-none"></div>
+        </div>
+
+        <!-- Animated Location Markers Overlay -->
+        <div class="absolute inset-0 pointer-events-none">
+          <style>
+            @keyframes map-ping {
+              0%, 100% {
+                transform: scale(1);
+                opacity: 0.8;
+              }
+              50% {
+                transform: scale(1.5);
+                opacity: 0.3;
+              }
+            }
+
+            @keyframes route-draw {
+              0% {
+                stroke-dashoffset: 1000;
+              }
+              100% {
+                stroke-dashoffset: 0;
+              }
+            }
+
+            .map-marker-ping {
+              animation: map-ping 2s ease-in-out infinite;
+            }
+          </style>
+
+          <!-- Station 33 Location Marker (Center) -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+            <div class="relative">
+              <!-- Pulsing rings -->
+              <div class="absolute inset-0 w-16 h-16 -translate-x-8 -translate-y-8 bg-primary/40 rounded-full map-marker-ping"></div>
+              <div class="absolute inset-0 w-12 h-12 -translate-x-6 -translate-y-6 bg-primary/60 rounded-full map-marker-ping" style="animation-delay: 0.5s;"></div>
+              <!-- Main marker -->
+              <div class="w-8 h-8 -translate-x-4 -translate-y-4 bg-primary rounded-full shadow-lg relative z-10 flex items-center justify-center border-2 border-white">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+              </div>
+              <!-- Label -->
+              <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-bold text-primary bg-white/95 dark:bg-slate-900/95 px-3 py-1.5 rounded-full shadow-lg border border-primary/20">
+                Station 33
+              </div>
+            </div>
+          </div>
+
+          <!-- Tennessee Riverwalk (South) -->
+          <div class="absolute bottom-[15%] left-1/2 -translate-x-1/2">
+            <div class="w-4 h-4 bg-accent rounded-full shadow-lg map-marker-ping border-2 border-white"></div>
+            <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-semibold text-accent bg-white/90 dark:bg-slate-900/90 px-2 py-1 rounded shadow">Riverwalk</div>
+            <!-- Connection line -->
+            <svg class="absolute top-0 left-0 w-full h-24 -translate-y-full" style="overflow: visible;">
+              <line x1="8" y1="96" x2="250" y2="30" stroke="rgb(122,139,79)" stroke-width="2" stroke-dasharray="4 4" opacity="0.6">
+                <animate attributeName="stroke-dashoffset" from="0" to="-8" dur="1.5s" repeatCount="indefinite"/>
+              </line>
+            </svg>
+          </div>
+
+          <!-- Downtown Core (Northeast) -->
+          <div class="absolute top-[20%] right-[15%]">
+            <div class="w-4 h-4 bg-secondary rounded-full shadow-lg map-marker-ping border-2 border-white" style="animation-delay: 0.7s;"></div>
+            <div class="absolute -top-6 right-0 whitespace-nowrap text-xs font-semibold text-secondary bg-white/90 dark:bg-slate-900/90 px-2 py-1 rounded shadow">Downtown</div>
+            <!-- Connection line -->
+            <svg class="absolute top-0 left-0 w-64 h-64 -translate-x-48 -translate-y-32" style="overflow: visible;">
+              <line x1="200" y1="140" x2="256" y2="256" stroke="rgb(216,90,58)" stroke-width="2" stroke-dasharray="4 4" opacity="0.6">
+                <animate attributeName="stroke-dashoffset" from="0" to="-8" dur="2s" repeatCount="indefinite"/>
+              </line>
+            </svg>
+          </div>
+
+          <!-- Innovation District (Northwest) -->
+          <div class="absolute top-[25%] left-[18%]">
+            <div class="w-4 h-4 bg-primary rounded-full shadow-lg map-marker-ping border-2 border-white" style="animation-delay: 1.2s;"></div>
+            <div class="absolute -top-6 left-0 whitespace-nowrap text-xs font-semibold text-primary bg-white/90 dark:bg-slate-900/90 px-2 py-1 rounded shadow">Innovation District</div>
+            <!-- Connection line -->
+            <svg class="absolute top-0 left-0 w-64 h-64 translate-x-4 translate-y-4" style="overflow: visible;">
+              <line x1="8" y1="8" x2="180" y2="180" stroke="rgb(194,69,56)" stroke-width="2" stroke-dasharray="4 4" opacity="0.6">
+                <animate attributeName="stroke-dashoffset" from="0" to="-8" dur="1.8s" repeatCount="indefinite"/>
+              </line>
+            </svg>
+          </div>
+
+          <!-- Walk Times Overlay -->
+          <div class="absolute top-3 right-3 bg-white/95 dark:bg-slate-900/95 rounded-lg shadow-lg p-3 border border-primary/10">
+            <div class="text-[10px] font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-2">Walk Times</div>
+            <div class="space-y-1 text-xs">
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-accent"></div>
+                <span class="text-slate-700 dark:text-slate-300">Riverwalk: <strong>2 min</strong></span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-secondary"></div>
+                <span class="text-slate-700 dark:text-slate-300">Downtown: <strong>5 min</strong></span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                <span class="text-slate-700 dark:text-slate-300">Tech Hub: <strong>8 min</strong></span>
+              </div>
             </div>
           </div>
         </div>
-
-        <!-- Animated Connections -->
-        <!-- Riverwalk -->
-        <div class="absolute top-[20%] left-[20%]">
-          <div class="w-3 h-3 bg-primary rounded-full animate-pulse-gentle"></div>
-          <svg class="absolute top-0 left-0 w-48 h-48 -translate-x-20 -translate-y-10">
-            <path d="M 20 10 Q 100 50, 190 120" fill="none" stroke="rgb(194,69,56)" stroke-width="2" opacity="0.6" stroke-dasharray="4 4">
-              <animate attributeName="stroke-dashoffset" from="0" to="-8" dur="1.5s" repeatCount="indefinite"/>
-            </path>
-          </svg>
-          <div class="absolute -top-6 left-4 text-xs font-semibold text-primary whitespace-nowrap bg-white/90 dark:bg-slate-900/90 px-2 py-1 rounded">Riverwalk</div>
-        </div>
-
-        <!-- Downtown -->
-        <div class="absolute top-[25%] right-[15%]">
-          <div class="w-3 h-3 bg-accent rounded-full animate-pulse-gentle" style="animation-delay: 0.5s;"></div>
-          <svg class="absolute top-0 right-0 w-48 h-48 translate-x-6 -translate-y-12">
-            <path d="M 200 10 Q 120 50, 10 120" fill="none" stroke="rgb(122,139,79)" stroke-width="2" opacity="0.6" stroke-dasharray="4 4">
-              <animate attributeName="stroke-dashoffset" from="0" to="-8" dur="2s" repeatCount="indefinite"/>
-            </path>
-          </svg>
-          <div class="absolute -top-6 right-4 text-xs font-semibold text-accent whitespace-nowrap bg-white/90 dark:bg-slate-900/90 px-2 py-1 rounded">Downtown</div>
-        </div>
-
-        <!-- Tech District -->
-        <div class="absolute bottom-[20%] right-[20%]">
-          <div class="w-3 h-3 bg-secondary rounded-full animate-pulse-gentle" style="animation-delay: 1s;"></div>
-          <svg class="absolute bottom-0 right-0 w-48 h-48 translate-x-8 translate-y-10">
-            <path d="M 200 180 Q 120 140, 10 60" fill="none" stroke="rgb(216,90,58)" stroke-width="2" opacity="0.6" stroke-dasharray="4 4">
-              <animate attributeName="stroke-dashoffset" from="0" to="-8" dur="1.8s" repeatCount="indefinite"/>
-            </path>
-          </svg>
-          <div class="absolute -bottom-6 right-4 text-xs font-semibold text-secondary whitespace-nowrap bg-white/90 dark:bg-slate-900/90 px-2 py-1 rounded">Tech Hub</div>
-        </div>
-
-        <!-- Restaurants -->
-        <div class="absolute bottom-[25%] left-[18%]">
-          <div class="w-3 h-3 bg-primary rounded-full animate-pulse-gentle" style="animation-delay: 1.5s;"></div>
-          <svg class="absolute bottom-0 left-0 w-48 h-48 -translate-x-16 translate-y-12">
-            <path d="M 20 180 Q 100 140, 190 60" fill="none" stroke="rgb(194,69,56)" stroke-width="2" opacity="0.6" stroke-dasharray="4 4">
-              <animate attributeName="stroke-dashoffset" from="0" to="-8" dur="1.6s" repeatCount="indefinite"/>
-            </path>
-          </svg>
-          <div class="absolute -bottom-6 left-4 text-xs font-semibold text-primary whitespace-nowrap bg-white/90 dark:bg-slate-900/90 px-2 py-1 rounded">Dining</div>
-        </div>
-
-        <!-- Distance indicators -->
-        <div class="absolute top-1/3 left-1/3 text-[10px] font-medium text-muted bg-white/80 dark:bg-slate-900/80 px-1.5 py-0.5 rounded">5min</div>
-        <div class="absolute top-1/3 right-1/3 text-[10px] font-medium text-muted bg-white/80 dark:bg-slate-900/80 px-1.5 py-0.5 rounded">3min</div>
       </div>
     </Fragment>
   </Content>
