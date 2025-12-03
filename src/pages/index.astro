@@ -117,28 +117,22 @@ const metadata = {
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <!-- Museum Gallery Image Layout - Separated & Polished -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[800px] lg:h-[600px]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start lg:items-center min-h-[500px] lg:min-h-[520px]">
 
           <!-- Claudia's Portrait - Left Side -->
           <div class="lg:col-span-5 flex justify-center lg:justify-end items-center">
             <div class="relative group">
               <!-- Main circular image -->
-              <div class="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.25)] ring-[12px] ring-white dark:ring-slate-800 transition-all duration-500 group-hover:shadow-[0_30px_80px_rgba(194,69,56,0.35)] group-hover:ring-primary/20">
+              <div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 xl:w-[440px] xl:h-[440px] rounded-full overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.15)] ring-8 ring-white dark:ring-slate-800 transition-all duration-500 group-hover:shadow-[0_15px_50px_rgba(194,69,56,0.25)] group-hover:ring-primary/20">
                 <Image
                   src={claudiaPullenImage}
                   alt="Claudia Pullen with her dog, Founder of Station 33"
                   class="w-full h-full object-cover"
                   widths={[400, 600, 800]}
-                  sizes="(max-width: 768px) 256px, (max-width: 1024px) 288px, 384px"
+                  sizes="(max-width: 768px) 288px, (max-width: 1024px) 320px, 440px"
                   loading="eager"
                 />
               </div>
-
-              <!-- Premium floating accent ring -->
-              <div class="absolute inset-0 rounded-full border-[3px] border-primary/40 -translate-x-3 -translate-y-3 transition-transform duration-500 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:border-primary/60"></div>
-
-              <!-- Subtle glow on hover -->
-              <div class="absolute inset-0 rounded-full bg-gradient-to-br from-primary/0 to-accent/0 transition-all duration-500 group-hover:from-primary/10 group-hover:to-accent/10 blur-2xl -z-10"></div>
             </div>
           </div>
 
@@ -146,7 +140,7 @@ const metadata = {
           <div class="lg:col-span-7 flex items-center">
             <div class="relative group w-full">
               <!-- Main rectangular card with elevated design -->
-              <div class="relative overflow-hidden rounded-3xl shadow-[0_25px_70px_rgba(0,0,0,0.3)] transition-all duration-500 group-hover:shadow-[0_35px_90px_rgba(0,0,0,0.4)] group-hover:-translate-y-2 w-full h-[400px] lg:h-[480px] xl:h-[520px]">
+              <div class="relative overflow-hidden rounded-3xl shadow-[0_12px_45px_rgba(0,0,0,0.2)] transition-all duration-500 group-hover:shadow-[0_18px_55px_rgba(0,0,0,0.25)] group-hover:-translate-y-1 w-full h-[360px] lg:h-[400px] xl:h-[440px]">
 
                 <!-- Image with subtle zoom on hover -->
                 <Image
@@ -154,33 +148,23 @@ const metadata = {
                   alt="Pullen Cancer Center - Legacy of Innovation"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   widths={[400, 600, 800, 1200]}
-                  sizes="(max-width: 768px) 100vw, 600px"
+                  sizes="(max-width: 768px) 100vw, 550px"
                   loading="eager"
                 />
 
                 <!-- Premium gradient overlay -->
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent"></div>
 
-                <!-- Glassmorphism label - enhanced -->
-                <div class="absolute bottom-8 right-8 max-w-md z-10">
-                  <div class="backdrop-blur-xl bg-white/15 dark:bg-slate-900/40 rounded-2xl p-6 border border-white/30 shadow-[0_8px_30px_rgba(0,0,0,0.3)] transition-all duration-300 group-hover:bg-white/20 group-hover:border-white/40">
-                    <div class="flex items-center gap-3 mb-3">
-                      <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                        <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
-                        </svg>
-                      </div>
-                      <p class="text-white text-base font-bold tracking-wide">Pullen Cancer Center</p>
-                    </div>
-                    <p class="text-white/95 text-sm leading-relaxed">
-                      A legacy of pioneering healthcare innovation and compassionate care
+                <!-- Glassmorphism label - simplified -->
+                <div class="absolute bottom-6 left-6 right-6 z-10">
+                  <div class="backdrop-blur-md bg-white/10 dark:bg-slate-900/30 rounded-xl px-5 py-4 border border-white/20">
+                    <p class="text-white text-lg font-bold mb-1">Pullen Cancer Center</p>
+                    <p class="text-white/90 text-sm leading-relaxed">
+                      A legacy of pioneering healthcare innovation
                     </p>
                   </div>
                 </div>
               </div>
-
-              <!-- Decorative frame accent - outside the card -->
-              <div class="absolute -inset-1 rounded-3xl bg-gradient-to-br from-primary/20 via-accent/10 to-secondary/20 -z-10 blur-sm opacity-60 transition-opacity duration-500 group-hover:opacity-100"></div>
             </div>
           </div>
 
@@ -402,17 +386,17 @@ const metadata = {
       <!-- Section Header -->
       <div class="text-center mb-12 md:mb-16 max-w-4xl mx-auto">
         <h2 class="font-bold text-5xl md:text-6xl font-heading mb-6 leading-tight">
-          The Disney Imagineering Partnership
+          Designed by Disney Imagineering
         </h2>
         <p class="text-xl md:text-2xl text-muted dark:text-slate-400 leading-relaxed">
-          When Claudia chose Disney Imagineering as her design partner, it wasn't about celebrity appeal—it was about finding collaborators who understood that great places aren't just designed, they're imagined.
+          Disney Imagineering doesn't just design buildings—they create places people fall in love with. For Station 33, they brought half a century of storytelling mastery to downtown Chattanooga.
         </p>
       </div>
 
       <!-- Content Text Block -->
       <div class="max-w-4xl mx-auto mb-12 md:mb-16 text-center space-y-8">
         <p class="text-lg text-muted dark:text-slate-400 leading-relaxed">
-          Disney Imagineering brings decades of storytelling expertise to create spaces that connect, inspire, and endure. This partnership validates Claudia's vision: that Station 33 could be both intimate and extraordinary.
+          From theme parks to urban destinations, they've mastered the art of human-scale magic. Here, they've helped preserve the 1930s Trolley Building while designing gathering spaces that feel both timeless and alive.
         </p>
 
         <!-- Featured Quote - Elevated Design -->
@@ -422,7 +406,7 @@ const metadata = {
 
           <blockquote class="relative pl-8 pr-4 py-6 border-l-4 border-primary/40 bg-gradient-to-r from-primary/5 to-transparent rounded-r-lg">
             <p class="text-xl md:text-2xl font-medium text-slate-900 dark:text-white leading-relaxed italic">
-              We wanted partners who understood that placemaking is about emotion, not just engineering. Disney Imagineering gets that at their core.
+              Most developers focus on square footage and ROI. Disney focuses on how a space makes you feel the moment you step into it. That's exactly what Station 33 needed.
             </p>
             <footer class="mt-4 text-sm font-semibold text-primary">
               — Claudia Pullen, Founder
@@ -431,7 +415,7 @@ const metadata = {
         </div>
 
         <p class="text-lg text-muted dark:text-slate-400 leading-relaxed">
-          The result? A development where every architectural detail, every gathering space, and every preserved historic element works together to tell Chattanooga's story—past, present, and future.
+          Every detail—from the restored brick facades to the riverfront plaza—tells Chattanooga's story with authenticity and craft.
         </p>
 
         <!-- Disney Magic Badge -->
