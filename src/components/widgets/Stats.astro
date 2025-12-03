@@ -30,8 +30,11 @@ const {
               </div>
             )}
             {amount && (
-              <div class="font-heading text-primary text-[3rem] font-bold dark:text-white lg:text-5xl xl:text-6xl mb-2">
-                {amount}
+              <div
+                class="font-heading text-primary text-[3rem] font-bold dark:text-white lg:text-5xl xl:text-6xl mb-2 stat-counter"
+                data-target={amount}
+              >
+                0
               </div>
             )}
             {title && (
@@ -44,3 +47,80 @@ const {
     }
   </div>
 </WidgetWrapper>
+
+<script>
+  // Counter animation for stats
+  function animateCounter(element: HTMLElement, target: string, duration: number = 2000) {
+    // Parse target value - extract number and any suffix (like K, M, +, etc.)
+    const match = target.match(/^([\d,]+)(.*?)$/);
+    if (!match) return;
+
+    const numericValue = parseInt(match[1].replace(/,/g, ''));
+    const suffix = match[2];
+
+    const startTime = performance.now();
+    const startValue = 0;
+
+    // Easing function for smooth deceleration
+    const easeOutQuart = (t: number): number => 1 - Math.pow(1 - t, 4);
+
+    function update(currentTime: number) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easedProgress = easeOutQuart(progress);
+
+      const currentValue = Math.floor(startValue + (numericValue - startValue) * easedProgress);
+
+      // Format with commas for numbers > 999
+      const formattedValue = currentValue.toLocaleString('en-US');
+      element.textContent = formattedValue + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        // Ensure we end with exact target value
+        element.textContent = target;
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  // Initialize counter animations when elements enter viewport
+  function initCounters() {
+    const counters = document.querySelectorAll('.stat-counter');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const element = entry.target as HTMLElement;
+            const target = element.dataset.target;
+
+            if (target && !element.classList.contains('counted')) {
+              element.classList.add('counted');
+              animateCounter(element, target, 2000);
+              observer.unobserve(element);
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% visible
+        rootMargin: '0px',
+      }
+    );
+
+    counters.forEach((counter) => observer.observe(counter));
+  }
+
+  // Initialize on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCounters);
+  } else {
+    initCounters();
+  }
+
+  // Re-initialize on view transitions
+  document.addEventListener('astro:page-load', initCounters);
+</script>
