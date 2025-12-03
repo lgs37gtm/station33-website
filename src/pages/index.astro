@@ -116,54 +116,51 @@ const metadata = {
   <section class="py-16 md:py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <!-- Museum Gallery Image Layout - Separated & Polished -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start lg:items-center min-h-[500px] lg:min-h-[520px]">
+        <!-- Overlapping Image Composition - Editorial Style -->
+        <div class="relative w-full h-[500px] sm:h-[560px] lg:h-[600px]">
 
-          <!-- Claudia's Portrait - Left Side -->
-          <div class="lg:col-span-5 flex justify-center lg:justify-end items-center">
-            <div class="relative group">
-              <!-- Main circular image -->
-              <div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 xl:w-[440px] xl:h-[440px] rounded-full overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.15)] ring-8 ring-white dark:ring-slate-800 transition-all duration-500 group-hover:shadow-[0_15px_50px_rgba(194,69,56,0.25)] group-hover:ring-primary/20">
-                <Image
-                  src={claudiaPullenImage}
-                  alt="Claudia Pullen with her dog, Founder of Station 33"
-                  class="w-full h-full object-cover"
-                  widths={[400, 600, 800]}
-                  sizes="(max-width: 768px) 288px, (max-width: 1024px) 320px, 440px"
-                  loading="eager"
-                />
+          <!-- PRIMARY IMAGE: Cancer Institute (Hero Background) -->
+          <div class="relative group w-full h-full">
+            <div class="relative overflow-hidden rounded-3xl shadow-[0_12px_45px_rgba(0,0,0,0.2)] transition-all duration-500 group-hover:shadow-[0_18px_55px_rgba(0,0,0,0.25)] group-hover:-translate-y-1 w-full h-full">
+
+              <!-- Cancer Institute Image -->
+              <Image
+                src={cancerInstituteImage}
+                alt="Pullen Cancer Center - Legacy of Innovation"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                widths={[400, 600, 800, 1200]}
+                sizes="(max-width: 768px) 100vw, 600px"
+                loading="eager"
+              />
+
+              <!-- Premium gradient overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent"></div>
+
+              <!-- Glassmorphism label - bottom positioning -->
+              <div class="absolute bottom-6 left-6 right-6 z-10">
+                <div class="backdrop-blur-md bg-white/10 dark:bg-slate-900/30 rounded-xl px-5 py-4 border border-white/20">
+                  <p class="text-white text-lg font-bold mb-1">Pullen Cancer Center</p>
+                  <p class="text-white/90 text-sm leading-relaxed">
+                    A legacy of pioneering healthcare innovation
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Cancer Institute Card - Right Side -->
-          <div class="lg:col-span-7 flex items-center">
-            <div class="relative group w-full">
-              <!-- Main rectangular card with elevated design -->
-              <div class="relative overflow-hidden rounded-3xl shadow-[0_12px_45px_rgba(0,0,0,0.2)] transition-all duration-500 group-hover:shadow-[0_18px_55px_rgba(0,0,0,0.25)] group-hover:-translate-y-1 w-full h-[360px] lg:h-[400px] xl:h-[440px]">
-
-                <!-- Image with subtle zoom on hover -->
+          <!-- SECONDARY IMAGE: Claudia's Portrait (Signature Stamp - Top Left Overlap) -->
+          <div class="absolute top-0 left-0 -translate-x-8 -translate-y-8 sm:-translate-x-10 sm:-translate-y-10 lg:-translate-x-12 lg:-translate-y-12 z-20">
+            <div class="relative group">
+              <!-- Circular portrait with elevated shadow -->
+              <div class="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 xl:w-72 xl:h-72 rounded-full overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.3)] ring-6 ring-white dark:ring-slate-800 transition-all duration-500 group-hover:shadow-[0_25px_70px_rgba(194,69,56,0.35)] group-hover:ring-primary/30 group-hover:scale-105">
                 <Image
-                  src={cancerInstituteImage}
-                  alt="Pullen Cancer Center - Legacy of Innovation"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  widths={[400, 600, 800, 1200]}
-                  sizes="(max-width: 768px) 100vw, 550px"
+                  src={claudiaPullenImage}
+                  alt="Claudia Pullen with her dog, Founder of Station 33"
+                  class="w-full h-full object-cover"
+                  widths={[300, 400, 500]}
+                  sizes="(max-width: 640px) 192px, (max-width: 1024px) 224px, 288px"
                   loading="eager"
                 />
-
-                <!-- Premium gradient overlay -->
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent"></div>
-
-                <!-- Glassmorphism label - simplified -->
-                <div class="absolute bottom-6 left-6 right-6 z-10">
-                  <div class="backdrop-blur-md bg-white/10 dark:bg-slate-900/30 rounded-xl px-5 py-4 border border-white/20">
-                    <p class="text-white text-lg font-bold mb-1">Pullen Cancer Center</p>
-                    <p class="text-white/90 text-sm leading-relaxed">
-                      A legacy of pioneering healthcare innovation
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -399,19 +396,34 @@ const metadata = {
           From theme parks to urban destinations, they've mastered the art of human-scale magic. Here, they've helped preserve the 1930s Trolley Building while designing gathering spaces that feel both timeless and alive.
         </p>
 
-        <!-- Featured Quote - Elevated Design -->
-        <div class="relative my-8 max-w-3xl mx-auto">
-          <!-- Decorative quote mark -->
-          <div class="absolute -top-4 -left-2 text-7xl font-serif text-primary/20 leading-none">"</div>
+        <!-- Animated Quote Card - Disney Imagineering -->
+        <div class="relative my-12 md:my-16 max-w-3xl mx-auto animate-quoteCard overflow-visible" style="animation-delay: 0.2s;">
+          <!-- Card Container -->
+          <div class="relative px-8 py-10 md:px-10 md:py-12 rounded-2xl bg-gradient-to-br from-white via-slate-50 to-primary/5 dark:from-slate-800 dark:via-slate-800/95 dark:to-primary/10 shadow-lg hover:shadow-2xl transition-all duration-300 ease-out hover:-translate-y-1 border border-transparent hover:border-primary/20 dark:hover:border-primary/30 group">
+            <!-- Decorative Opening Quote Mark -->
+            <div class="absolute -top-6 -left-4 md:-top-8 md:-left-6 text-6xl md:text-7xl lg:text-8xl font-serif text-primary/15 dark:text-primary/20 leading-none select-none pointer-events-none transition-opacity duration-300 group-hover:opacity-40" style="transform: rotate(-5deg);" aria-hidden="true">
+              "
+            </div>
 
-          <blockquote class="relative pl-8 pr-4 py-6 border-l-4 border-primary/40 bg-gradient-to-r from-primary/5 to-transparent rounded-r-lg">
-            <p class="text-xl md:text-2xl font-medium text-slate-900 dark:text-white leading-relaxed italic">
-              Most developers focus on square footage and ROI. Disney focuses on how a space makes you feel the moment you step into it. That's exactly what Station 33 needed.
-            </p>
-            <footer class="mt-4 text-sm font-semibold text-primary">
-              — Claudia Pullen, Founder
-            </footer>
-          </blockquote>
+            <!-- Decorative Closing Quote Mark -->
+            <div class="absolute -bottom-6 -right-4 md:-bottom-8 md:-right-6 text-6xl md:text-7xl lg:text-8xl font-serif text-primary/15 dark:text-primary/20 leading-none select-none pointer-events-none transition-opacity duration-300 group-hover:opacity-40" style="transform: rotate(5deg);" aria-hidden="true">
+              "
+            </div>
+
+            <!-- Subtle Inner Glow -->
+            <div class="absolute inset-0 rounded-2xl bg-gradient-radial from-primary/3 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+
+            <!-- Quote Content -->
+            <blockquote class="relative z-10">
+              <p class="text-xl md:text-2xl font-medium text-slate-900 dark:text-white leading-relaxed">
+                Most developers focus on square footage and ROI. Disney focuses on how a space makes you feel the moment you step into it. That's exactly what Station 33 needed.
+              </p>
+
+              <footer class="mt-6 text-sm font-semibold text-primary">
+                — Claudia Pullen, Founder
+              </footer>
+            </blockquote>
+          </div>
         </div>
 
         <p class="text-lg text-muted dark:text-slate-400 leading-relaxed">

@@ -239,4 +239,34 @@
   #disney .text-primary:has(+ div:contains("Riverwalk")) {
     color: rgb(75, 105, 125) !important; /* Muted slate blue */
   }
+
+  /* Animated Quote Card - Disney Imagineering */
+  @keyframes quoteCardEntrance {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .animate-quoteCard {
+    animation: quoteCardEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+
+  /* Accessibility: Respect prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-quoteCard {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    .animate-quoteCard .group:hover {
+      transform: none;
+    }
+  }
 </style>
